@@ -6,8 +6,6 @@
   <title>T&S MULTISERVICES</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Solo agregamos lo que tu CSS aún no tiene */
-
     .content-section {
       display: none;
     }
@@ -16,7 +14,6 @@
       display: block;
     }
 
-    /* Dropdown styles */
     .dropdown {
       position: relative;
       display: inline-block;
@@ -57,6 +54,7 @@
 
   <nav>
     <ul>
+      <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
       <li class="dropdown">
         <a href="#">Services</a>
         <div class="dropdown-content">
@@ -71,7 +69,15 @@
   </nav>
 
   <main>
-    <section id="form" class="content-section active">
+    <section id="inicio" class="content-section active">
+      <h2>Bienvenidos a T&S MULTISERVICES</h2>
+      <p>En T&S MULTISERVICES nos especializamos en brindar soluciones integrales y de calidad para satisfacer las diversas necesidades de nuestros clientes. Somos una empresa comprometida con la excelencia, la eficiencia y la confianza, ofreciendo una amplia gama de servicios con personal altamente capacitado y enfocado en resultados.</p>
+      <p>Trabajamos con pasión para ser su aliado estratégico y facilitar el desarrollo de sus proyectos personales o empresariales.</p>
+      <p>Con T&S MULTISERVICES, usted cuenta con un equipo profesional que entiende la importancia de un servicio bien hecho, puntual y adaptado a sus requerimientos.</p>
+      <p>Estamos aquí para hacerle la vida más fácil.</p>
+    </section>
+
+    <section id="form" class="content-section">
       <h2>Request Cleaning</h2>
       <p>Click the button below to complete our form. We will contact you with a personalized quote.</p>
       <a href="https://forms.gle/your-form-link" target="_blank" class="button">Go to the form</a>
@@ -104,7 +110,11 @@
       sections.forEach(section => section.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
+
+    // Al cargar la página, mostrar la sección "inicio"
+    window.addEventListener('DOMContentLoaded', () => {
+      showSection('inicio');
+    });
   </script>
 </body>
 </html>
-
