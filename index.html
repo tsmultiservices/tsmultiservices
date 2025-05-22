@@ -6,28 +6,46 @@
   <title>T&S MULTISERVICES</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Solo agregamos lo que tu CSS aún no tiene */
+
     .content-section {
       display: none;
-      padding: 2rem;
-      text-align: center;
     }
 
     .active {
       display: block;
     }
 
-    .button {
+    /* Dropdown styles */
+    .dropdown {
+      position: relative;
       display: inline-block;
-      background-color: #6a5acd;
-      color: white;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 10px;
-      margin-top: 1rem;
     }
 
-    .button:hover {
-      background-color: #5a4bbb;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #eeeeff;
+      min-width: 160px;
+      z-index: 1;
+      text-align: left;
+      border-radius: 5px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-content a {
+      color: #4b0082;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddddff;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
   </style>
 </head>
@@ -39,22 +57,34 @@
 
   <nav>
     <ul>
-      <li><a href="#" onclick="showSection('services')">Services</a></li>
+      <li class="dropdown">
+        <a href="#">Services</a>
+        <div class="dropdown-content">
+          <a href="#" onclick="showSection('form')">Cleaning</a>
+          <a href="#" onclick="showSection('tv')">TV Streaming</a>
+          <a href="#" onclick="showSection('others')">Others</a>
+        </div>
+      </li>
       <li><a href="#" onclick="showSection('form')">Request Cleaning</a></li>
       <li><a href="#" onclick="showSection('contact')">Contact</a></li>
     </ul>
   </nav>
 
   <main>
-    <section id="services" class="content-section active">
-      <h2>Cleaning Services</h2>
-      <p>We offer cleaning for homes, offices, commercial spaces, and more. Select the type of service you need.</p>
-    </section>
-
-    <section id="form" class="content-section">
+    <section id="form" class="content-section active">
       <h2>Request Cleaning</h2>
       <p>Click the button below to complete our form. We will contact you with a personalized quote.</p>
       <a href="https://forms.gle/your-form-link" target="_blank" class="button">Go to the form</a>
+    </section>
+
+    <section id="tv" class="content-section">
+      <h2>TV Streaming</h2>
+      <p>We offer access to various TV streaming services with affordable plans. Contact us for more information.</p>
+    </section>
+
+    <section id="others" class="content-section">
+      <h2>Other Services</h2>
+      <p>We provide additional services like maintenance, support, and more. Ask us about what you need!</p>
     </section>
 
     <section id="contact" class="content-section">
@@ -77,3 +107,4 @@
   </script>
 </body>
 </html>
+
