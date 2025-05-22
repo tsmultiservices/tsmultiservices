@@ -5,40 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>T&S MULTISERVICES</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .content-section {
+      display: none;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #6a5acd;
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .button:hover {
+      background-color: #5a4bbb;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>T&S MULTISERVICES</h1>
-    <p>Professional Multiservices</p>
+    <p>Professional cleaning and more</p>
   </header>
 
   <nav>
     <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#request">Request Cleaning</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" onclick="showSection('services')">Services</a></li>
+      <li><a href="#" onclick="showSection('form')">Request Cleaning</a></li>
+      <li><a href="#" onclick="showSection('contact')">Contact</a></li>
     </ul>
   </nav>
 
-  <section id="services">
-    <h2>Cleaning Services</h2>
-    <p>We offer house, office, commercial space cleaning, and more. Select the type of service you need.</p>
-  </section>
+  <main>
+    <section id="services" class="content-section active">
+      <h2>Cleaning Services</h2>
+      <p>We offer cleaning for homes, offices, commercial spaces, and more. Select the type of service you need.</p>
+    </section>
 
-  <section id="request">
-    <h2>Request Cleaning</h2>
-    <p>Click the button to fill out our form and we will contact you with a personalized quote.</p>
-    <a href="https://forms.gle/U1fg77gG7jWZvJJz5" class="boton">Go to Form</a>
-  </section>
+    <section id="form" class="content-section">
+      <h2>Request Cleaning</h2>
+      <p>Click the button below to complete our form. We will contact you with a personalized quote.</p>
+      <a href="https://forms.gle/your-form-link" target="_blank" class="button">Go to the form</a>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: tsmultiservices2@gmail.com</p>
-    <p>Phone: +1 (301) 693-5660</p>
-  </section>
+    <section id="contact" class="content-section">
+      <h2>Contact</h2>
+      <p>Email: ts.multiservices@email.com</p>
+      <p>Phone: +504 9999-9999</p>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 T&S MULTISERVICES. All rights reserved.</p>
   </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
