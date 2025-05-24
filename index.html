@@ -18,22 +18,32 @@
       background: linear-gradient(to right, #6a5acd, #87cefa);
       color: white;
       padding: 1.5rem 2rem;
+    }
+
+    .header-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    header img {
+    .header-container img {
       height: 60px;
-      margin-right: 1rem;
     }
 
-    header h1 {
+    .header-text {
+      text-align: left;
+    }
+
+    .header-text h1 {
       margin: 0;
       font-size: 1.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    }
+
+    .header-text p {
+      margin: 0;
+      font-size: 1rem;
     }
 
     nav {
@@ -148,11 +158,13 @@
 <body onload="showSection('inicio')">
 
   <header>
-    <h1>
+    <div class="header-container">
       <img src="logo.png" alt="Logo" />
-      T&S MULTISERVICES
-    </h1>
-    <p style="margin: 0;">Professional cleaning and more</p>
+      <div class="header-text">
+        <h1>T&S MULTISERVICES</h1>
+        <p>Multi-services Company at your disposal</p>
+      </div>
+    </div>
   </header>
 
   <nav>
