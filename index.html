@@ -4,109 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>T&S MULTISERVICES</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
+    /* GENERAL */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #f0f4ff, #ffffff);
+      background: linear-gradient(to bottom right, #f9faff, #e0e7ff);
       color: #333;
       overflow-x: hidden;
     }
 
     header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
       background: linear-gradient(to right, #6a5acd, #87cefa);
       color: white;
-      padding: 2rem;
-      animation: fadeIn 1.5s ease;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     header img {
-      height: 80px;
-      width: auto;
-      animation: logoSpin 3s ease-in-out;
+      height: 60px;
+      margin-right: 1rem;
     }
 
-    .header-text {
-      text-align: center;
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     nav {
       background-color: #eeeeff;
-      padding: 1rem;
+      padding: 1rem 2rem;
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     nav ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     nav ul li {
       display: inline-block;
-      margin: 0 1rem;
       position: relative;
+      margin: 0 1rem;
     }
 
     nav a {
       text-decoration: none;
       color: #4b0082;
       font-weight: bold;
-      transition: color 0.3s, border-bottom 0.3s;
-      border-bottom: 2px solid transparent;
+      padding: 0.5rem;
+      display: inline-block;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #2f004d;
-      border-bottom: 2px solid #4b0082;
+      color: #6a5acd;
     }
 
-    .dropdown-content {
+    nav ul li ul {
       display: none;
       position: absolute;
-      background-color: #ffffff;
-      min-width: 180px;
+      background: #f1f1ff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       border-radius: 6px;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-      z-index: 1;
-      text-align: left;
-      animation: fadeIn 0.3s ease-in-out;
+      top: 2.5rem;
+      padding: 0.5rem 0;
     }
 
-    .dropdown-content a {
-      color: #4b0082;
-      padding: 12px 16px;
-      text-decoration: none;
+    nav ul li:hover ul {
       display: block;
     }
 
-    .dropdown-content a:hover {
-      background-color: #f0f0ff;
+    nav ul li ul li {
+      display: block;
+      margin: 0;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
+    nav ul li ul li a {
+      padding: 0.5rem 1.5rem;
     }
 
     .content-section {
       display: none;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      border-radius: 12px;
-      background-color: #ffffffcc;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      animation: fadeInUp 0.8s ease forwards;
+      padding: 3rem 2rem;
       text-align: center;
+      animation: fadeIn 0.6s ease;
     }
 
     .active {
@@ -121,12 +113,11 @@
       text-decoration: none;
       border-radius: 10px;
       margin-top: 1rem;
-      transition: transform 0.2s, background-color 0.3s;
+      transition: background 0.3s ease;
     }
 
     .button:hover {
       background-color: #5a4bbb;
-      transform: scale(1.05);
     }
 
     footer {
@@ -134,56 +125,46 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      margin-top: 2rem;
     }
 
+    img.presentation-img {
+      max-width: 250px;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s ease;
+    }
+
+    /* ANIMATIONS */
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes logoSpin {
-      from { transform: rotateY(0deg); }
-      to { transform: rotateY(360deg); }
-    }
-
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
-      pointer-events: none;
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-<body>
-  <div class="particles"></div>
+<body onload="showSection('inicio')">
+
   <header>
-    <img src="logo.png" alt="T&S Logo" />
-    <div class="header-text">
-      <h1>T&S MULTISERVICES</h1>
-      <p>Professional cleaning and more</p>
-    </div>
+    <h1>
+      <img src="logo.png" alt="Logo" />
+      T&S MULTISERVICES
+    </h1>
+    <p style="margin: 0;">Professional cleaning and more</p>
   </header>
 
   <nav>
     <ul>
       <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
-      <li class="dropdown">
-        <a href="#">Services</a>
-        <div class="dropdown-content">
-          <a href="#" onclick="showSection('form')">Request Cleaning</a>
-          <a href="#" onclick="showSection('tv')">TV Streaming</a>
-          <a href="#" onclick="showSection('others')">Others</a>
-        </div>
+      <li>
+        <a href="#" onclick="return false;">Services</a>
+        <ul>
+          <li><a href="#" onclick="showSection('form')">Request Cleaning</a></li>
+          <li><a href="#" onclick="showSection('tv')">TV Streaming</a></li>
+          <li><a href="#" onclick="showSection('others')">Others</a></li>
+        </ul>
       </li>
       <li><a href="#" onclick="showSection('contact')">Contact</a></li>
     </ul>
@@ -191,11 +172,17 @@
 
   <main>
     <section id="inicio" class="content-section active">
+      <img src="A_2D_digital_illustration_features_a_friendly_T&S_.png" alt="Welcome" class="presentation-img" />
       <h2>Bienvenidos a T&S MULTISERVICES</h2>
-      <p>En T&S MULTISERVICES nos especializamos en brindar soluciones integrales y de calidad para satisfacer las diversas necesidades de nuestros clientes. Somos una empresa comprometida con la excelencia, la eficiencia y la confianza, ofreciendo una amplia gama de servicios con personal altamente capacitado y enfocado en resultados.</p>
-      <p>Trabajamos con pasión para ser su aliado estratégico y facilitar el desarrollo de sus proyectos personales o empresariales.</p>
-      <p>Con T&S MULTISERVICES, usted cuenta con un equipo profesional que entiende la importancia de un servicio bien hecho, puntual y adaptado a sus requerimientos.</p>
-      <p>Estamos aquí para hacerle la vida más fácil.</p>
+      <p style="max-width: 700px; margin: auto;">
+        En T&S MULTISERVICES nos especializamos en brindar soluciones integrales y de calidad para satisfacer las diversas necesidades de nuestros clientes. Somos una empresa comprometida con la excelencia, la eficiencia y la confianza, ofreciendo una amplia gama de servicios con personal altamente capacitado y enfocado en resultados.
+        <br><br>
+        Trabajamos con pasión para ser su aliado estratégico y facilitar el desarrollo de sus proyectos personales o empresariales.
+        <br><br>
+        Con T&S MULTISERVICES, usted cuenta con un equipo profesional que entiende la importancia de un servicio bien hecho, puntual y adaptado a sus requerimientos.
+        <br><br>
+        Estamos aquí para hacerle la vida más fácil.
+      </p>
     </section>
 
     <section id="form" class="content-section">
@@ -206,12 +193,12 @@
 
     <section id="tv" class="content-section">
       <h2>TV Streaming</h2>
-      <p>We offer access to various TV streaming services with affordable plans. Contact us for more information.</p>
+      <p>Enjoy reliable and affordable streaming services for your home or business. Packages tailored to your needs.</p>
     </section>
 
     <section id="others" class="content-section">
       <h2>Other Services</h2>
-      <p>We provide additional services like maintenance, support, and more. Ask us about what you need!</p>
+      <p>We offer additional solutions like handyman services, painting, small repairs, and more. Contact us for more information.</p>
     </section>
 
     <section id="contact" class="content-section">
@@ -231,10 +218,6 @@
       sections.forEach(section => section.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      showSection('inicio');
-    });
   </script>
 </body>
 </html>
