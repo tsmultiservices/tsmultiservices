@@ -6,49 +6,80 @@
   <title>T&S MULTISERVICES</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .content-section {
-      display: none;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f0f4ff, #ffffff);
+      color: #333;
+      overflow-x: hidden;
     }
 
-    .active {
-      display: block;
-    }
-
-    /* Header logo layout */
     header {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
+      background: linear-gradient(to right, #6a5acd, #87cefa);
+      color: white;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease;
     }
 
     header img {
       height: 80px;
       width: auto;
+      animation: logoSpin 3s ease-in-out;
     }
 
     .header-text {
       text-align: center;
     }
 
-    .dropdown {
-      position: relative;
+    nav {
+      background-color: #eeeeff;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
       display: inline-block;
+      margin: 0 1rem;
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4b0082;
+      font-weight: bold;
+      transition: color 0.3s, border-bottom 0.3s;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      color: #2f004d;
+      border-bottom: 2px solid #4b0082;
     }
 
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: #eeeeff;
-      min-width: 160px;
+      background-color: #ffffff;
+      min-width: 180px;
+      border-radius: 6px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
       z-index: 1;
       text-align: left;
-      border-radius: 5px;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.3s ease-in-out;
     }
 
     .dropdown-content a {
@@ -59,19 +90,82 @@
     }
 
     .dropdown-content a:hover {
-      background-color: #ddddff;
+      background-color: #f0f0ff;
     }
 
     .dropdown:hover .dropdown-content {
       display: block;
     }
 
+    .content-section {
+      display: none;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      background-color: #ffffffcc;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      animation: fadeInUp 0.8s ease forwards;
+      text-align: center;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #6a5acd;
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 10px;
+      margin-top: 1rem;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #5a4bbb;
+      transform: scale(1.05);
+    }
+
     footer {
+      background-color: #ddddff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
       margin-top: 2rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes logoSpin {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
+  <div class="particles"></div>
   <header>
     <img src="logo.png" alt="T&S Logo" />
     <div class="header-text">
@@ -86,12 +180,11 @@
       <li class="dropdown">
         <a href="#">Services</a>
         <div class="dropdown-content">
-          <a href="#" onclick="showSection('form')">Cleaning</a>
+          <a href="#" onclick="showSection('form')">Request Cleaning</a>
           <a href="#" onclick="showSection('tv')">TV Streaming</a>
           <a href="#" onclick="showSection('others')">Others</a>
         </div>
       </li>
-      <li><a href="#" onclick="showSection('form')">Request Cleaning</a></li>
       <li><a href="#" onclick="showSection('contact')">Contact</a></li>
     </ul>
   </nav>
