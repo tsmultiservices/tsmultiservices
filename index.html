@@ -8,10 +8,31 @@
   <style>
     .content-section {
       display: none;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .active {
       display: block;
+    }
+
+    /* Header logo layout */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 80px;
+      width: auto;
+    }
+
+    .header-text {
+      text-align: center;
     }
 
     .dropdown {
@@ -44,12 +65,19 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
+    footer {
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>T&S MULTISERVICES</h1>
-    <p>Professional cleaning and more</p>
+    <img src="logo.png" alt="T&S Logo" />
+    <div class="header-text">
+      <h1>T&S MULTISERVICES</h1>
+      <p>Professional cleaning and more</p>
+    </div>
   </header>
 
   <nav>
@@ -111,7 +139,6 @@
       document.getElementById(id).classList.add('active');
     }
 
-    // Al cargar la página, mostrar la sección "inicio"
     window.addEventListener('DOMContentLoaded', () => {
       showSection('inicio');
     });
